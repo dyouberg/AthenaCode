@@ -18,9 +18,6 @@ var removeString = process.argv[3].replace(/ /g,'');
 var pathsFoundArray = [];
 var uniquePathsArray = [];
 
-// Keep track of the last result for getPosition
-var lastResult = -1000000;
-
 // Now we want to create a map for the occurence and the symbol
 /*
     [
@@ -36,7 +33,11 @@ var map = [];
 initializeMap();
 
 // STEP 3: Calculate the paths
-var done = false;
+
+// Keep track of the last result for getPosition
+// this needs to be initialized to a negative number with each iteration
+var lastResult = -1000000;
+
 calculatePaths();
 
 console.log('Original String: '+originalString);
@@ -162,6 +163,13 @@ function getAllUniquePaths() {
 /*****************************************************************************
  * UTILITY FUNCTIONS
  *****************************************************************************/
+ /**
+  * getValues - Use the map with occurence values to retrieve the next matching
+  *  pattern in the original string
+  * @param map The map with which to search for values matching our pattern
+  * @return returnValue A sequence matching out pattern which can be added to
+  *  the array if it is a new unique value.  i.e. '0_1_4'
+  */
  function getValues(map) {
      var returnValue = '';
      lastResult = -1000000;
@@ -175,11 +183,18 @@ function getAllUniquePaths() {
     return returnValue.substr(0, returnValue.length - 1);
  }
 
-// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
-// I started with this idea in mind, then had to take special cases into account
-//
-// Return the position of the string, with the index we are looking for, return -1 if doesn't exist
+/**
+ * getPosition - Retrieve the nth (occurence) position of the symbol in the string
+ * @param  originalString The string through which to search through
+ * @param  symbol The symbol we are looking for, *, -, or _
+ * @param  occurence The nth occurence of the symbol to find
+ * @param  index The current index of the map, used in some pattern checking
+ * @return The position of the string with the index we are looking for, or return -1
+ *   if it doesn't exist
+ */
 function getPosition(originalString, symbol, occurence, index) {
+    // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
+    // I started with this idea in mind, then had to take special cases into account
     var occ = occurence;
     var result = originalString.split(symbol, occ).join(symbol).length;
 
@@ -199,6 +214,12 @@ function getPosition(originalString, symbol, occurence, index) {
     return result;
 }
 
+/**
+ * removeAt - Helper function to remove an element from a string
+ * @param  string The string in which to splice
+ * @param  index The element index to remove
+ * @return The string, no longer containing the value at index
+ */
 function removeAt(string, index) {
     return string.substr(0, index) + string.substr(index+1, string.length);
 }
