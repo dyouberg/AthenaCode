@@ -15,7 +15,26 @@ node app.js {ORIGINAL_STRING} {REMOVE_STRING}
 
 ### AB / R example
 ```
-node app.js '* - _ - * * *' '* *'
+node app.js '* - _ - * * *' '* - *'
+```
+
+### Output
+```
+Original String: *-_-***
+String to Remove:*-*
+
+Initialized map:
+[ { symbol: '*', occurence: 1 },
+  { symbol: '-', occurence: 1 },
+  { symbol: '*', occurence: 2 } ]
+
+Paths Found:
+[ '0_1_4', '0_1_5', '0_1_6', '0_3_4', '0_3_5', '0_3_6' ]
+
+Unique Paths:
+[ '_-**', '-_**' ]
+
+Result: 2
 ```
 
 ### HELLO WORLD / HELP example
