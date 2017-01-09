@@ -4,16 +4,16 @@ Morse Code Test Problem.
 
 > Execution Instructions:
 
-> # git clone https://github.com/dyouberg/AthenaCode
+# git clone https://github.com/dyouberg/AthenaCode
 
-> # npm install
+# npm install
 
-> # node app.js {ORIGINAL_STRING} {REMOVE_STRING}
+# node app.js {ORIGINAL_STRING} {REMOVE_STRING}
 
 > Sample usage:
 
-> AB / R example
-> # node app.js '* - _ - * * *' '* *'
+# AB / R example
+# node app.js '* - _ - * * *' '* *'
 
-> HELLO WORLD / HELP example
-> # node app.js '* * * * _ * _ * - * * _ * - * * _ - - - _ _ _ * - - _ - - - _ * - * _ * - * * _ - * *' '* * * * _ * _ * - * * _ * - - *'
+# HELLO WORLD / HELP example
+# node app.js '* * * * _ * _ * - * * _ * - * * _ - - - _ _ _ * - - _ - - - _ * - * _ * - * * _ - * *' '* * * * _ * _ * - * * _ * - - *'
