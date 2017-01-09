@@ -34,8 +34,10 @@ initializeMap();
 
 // STEP 3: Calculate the paths
 
-// Keep track of the last result for getPosition
-// this needs to be initialized to a negative number with each iteration
+// Keep track of the last result for getPosition.  Certain symbol patterns cause the last result to be larger than
+// the next value.  In that case we need to get the next occurence of that symbol.
+
+// This needs to be initialized to a negative number with each iteration
 var lastResult = -1000000;
 
 calculatePaths();
@@ -195,8 +197,7 @@ function getAllUniquePaths() {
 function getPosition(originalString, symbol, occurence, index) {
     // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
     // I started with this idea in mind, then had to take special cases into account
-    var occ = occurence;
-    var result = originalString.split(symbol, occ).join(symbol).length;
+    var result = originalString.split(symbol, occurence).join(symbol).length;
 
     if (result >= originalString.length) {
         return '-1';
@@ -206,8 +207,7 @@ function getPosition(originalString, symbol, occurence, index) {
     // This can occur due to certain symbol patterns
     while (result <= lastResult) {
         map[index].occurence++;
-        occ = map[index].occurence;
-        return getPosition(originalString, symbol, occ, index);
+        return getPosition(originalString, symbol, map[index].occurence, index);
     }
 
     lastResult = result;
