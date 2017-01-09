@@ -1,0 +1,9 @@
+{
+  "name": "AthenaCode",
+  "description": "NodeJS Morse Code Problem",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
