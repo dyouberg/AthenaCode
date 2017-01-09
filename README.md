@@ -1,5 +1,5 @@
 # Daniel Youberg
-# Test Problem for Athena Healthcare.
+# Test Problem for Athena Health.
 
 Morse Code Test Problem.
 
