@@ -1,5 +1,5 @@
 # Daniel Youberg
-# Test Problem for Athena Health.
+# Morse Code Test Problem
 
 Morse Code Test Problem.
 
@@ -9,7 +9,7 @@ Morse Code Test Problem.
 If you do not have NPM installed...
 Download and Install NodeJS Package Manager here: https://nodejs.org/en/download/
 
-git clone https://github.com/dyouberg/AthenaCode
+git clone https://github.com/dyouberg/MorseCode
 npm install
 node app.js {ORIGINAL_STRING} {REMOVE_STRING}
 ```
